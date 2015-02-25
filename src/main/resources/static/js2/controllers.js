@@ -6,7 +6,7 @@ angular.module('BookStoreApp.controllers', []).
         })
 
         $scope.editBook = function (book) {
-            console.log(book)
+           // console.log(book)
             $rootScope.currentEditBook=angular.copy(book)
             console.log( $rootScope.currentEditBook)
             $location.path('edit')
@@ -14,25 +14,26 @@ angular.module('BookStoreApp.controllers', []).
 
 
     })
-    .controller('addBookController', function ($scope,$route,  $location,BookStoreAPIService) {
+    .controller('addBookController', function ($window,$scope,$route,  $location,BookStoreAPIService) {
 
-        $scope.addBook = function () {
-            BookStoreAPIService.save($scope.book)
+        $scope.addBook = function (book) {
+            console.log(book)
+            BookStoreAPIService.save(book)
             $location.path('/')
-            $route.reload()
+            $window.location.reload()
         }
        
 
     })
 
-    .controller('editBookController', function ($scope,$rootScope, $location, BookStoreAPIService) {
+    .controller('editBookController', function ($window,$scope,$route,$rootScope, $location, BookStoreAPIService) {
         //$scope.book=$rootScope.currentEditBook;
         //console.log( $rootScope.currentEditBook)
-        $scope.updateBook = function () {
-            console.log($scope.book)
-            BookStoreAPIService.save($rootScope.currentEditBook)
+        $scope.updateBook = function (book) {
+            console.log(book)
+            BookStoreAPIService.save(book)
             $location.path('/')
-            $route.reload()
+            $window.location.reload()
         }
 
 

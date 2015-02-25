@@ -19,7 +19,7 @@ bookStoreApp.config(function($routeProvider) {
 
         // route for the edit page
         .when('/edit', {
-            templateUrl : 'pages/create.html',
+            templateUrl : 'pages/edit.html',
             controller  : 'editBookController'
         })
 
