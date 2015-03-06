@@ -18,27 +18,26 @@ class BookController @Autowired()(private val bookRepository: BookRepository) {
   }
 
   @RequestMapping(value = Array("/books/{id}"), method = Array(RequestMethod.GET))
-  def get(@PathVariable("id") id: String) = {
+  def get(@PathVariable("id") id: Long) = {
     bookRepository.findOne(id)
   }
 
 
   @RequestMapping(value = Array("/books"), method = Array(RequestMethod.POST))
   def create(@Valid @RequestBody book: Book) = {
-    println(book)
     bookRepository.save(book)
   }
 
   @RequestMapping(value = Array("/books/{id}"), method = Array(RequestMethod.PUT))
-  def update(@PathVariable("id") id: String, @Valid @RequestBody book: Book) = {
+  def update(@PathVariable("id") id: Long, @Valid @RequestBody book: Book) = {
 
-    bookRepository.save(book)
+    bookRepository.saveAndFlush(book)
 
   }
 
 
   @RequestMapping(value = Array("/books/{id}"), method = Array(RequestMethod.DELETE))
-  def delete(@PathVariable("id") id: String, @Valid @RequestBody book: Book) = {
+  def delete(@PathVariable("id") id: Long) = {
     bookRepository.delete(id)
   }
 }

@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="utf-8">
     <title>Book Store Application</title>
@@ -42,54 +42,14 @@
         </div>
     </div>
 </div>
-<div class="clearfix"></div>
+<br/>
 
-<div class="container">
-    <div class="bs-docs-section well-lg">
-
-        <div ng-app="BookStoreApp" ng-controller="BookStoreController">
-
-            <div class="row"/>
-            <div class="row">
-                <div class="col-lg-12">
+<div ng-app="BookStoreApp" class="container">
 
 
-                    <div class="bs-component">
-                        <table class="table table-striped table-hover ">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="book in bookList">
-                                <td>{{book.bookId}}</td>
-                                <td>{{book.title}}</td>
-                                <td>{{book.author}}</td>
-                                <td>{{book.desc}}</td>
-                                <td>{{book.price}}</td>
-                                <td><button ng-click="editBook(book)" type="button"
-                                        class="btn btn-link">edit
-                                </button></td>
-                            </tr>
+    <div id="content" ui-view></div>
 
-                            </tbody>
-                        </table>
-                    </div>
 
-                </div>
-            </div>
-
-            <a href="#/create">Add Book</a><br/>
-
-            <div ng-view></div>
-        </div>
-
-    </div>
 </div>
 
 
@@ -97,11 +57,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular-resource.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-<script src="js2/booty.js"></script>
-<script src="js2/app.js"></script>
-<script src="js2/services.js"></script>
-<script src="js2/controllers.js"></script>
-<script src="js2/directives.js"></script>
+<script src="js/booty.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/angular-ui-router.js"></script>
 
 
 </body>

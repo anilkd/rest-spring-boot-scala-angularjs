@@ -1,4 +1,3 @@
-
 angular.module('BookStoreApp.services', ["ngResource"])
 
     .factory('BookStoreAPIService', ['$resource', 'Base64', '$http', function ($resource, Base64, $http) {
@@ -6,12 +5,14 @@ angular.module('BookStoreApp.services', ["ngResource"])
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('user' + ':' + 'password');
         $http.defaults.headers.common['Accept'] = "application/json"
 
-        var bookStoreAPI = $resource("/books/:id", {
-                id: '@id'
+        var bookStoreAPI = $resource("/books/:bookId", {
+                bookId: '@bookId'
             },
-            {
-                update: { method:'PUT' }
-            });
+            { updateBook: { method: 'PUT' },
+                remove: {method:'DELETE'}
+            }
+
+        );
 
         return bookStoreAPI;
 
